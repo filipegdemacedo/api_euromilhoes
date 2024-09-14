@@ -1,13 +1,13 @@
+import os
 from twilio.rest import Client
 from script import get_euromilhoes_results_message
 
-# Twilio credentials
-account_sid = 'AC2b82f82d313637b0ff77b731a9d8dd73'
-auth_token = '20a524e983897d5d963d9da3898ddf2d'
+account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+auth_token = os.getenv('TWILIO_ACCOUNT_SID')
 client = Client(account_sid, auth_token)
 
-from_whatsapp_number = 'whatsapp:+14155238886'
-to_whatsapp_number = 'whatsapp:+351932822831'
+from_whatsapp_number = os.getenv('WHATSAPP_FROM_NUMBER')
+to_whatsapp_number = os.getenv('WHATSAPP_TO_NUMBER')
 
 def send_whatsapp_message(result_message):
     message = client.messages.create(
