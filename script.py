@@ -80,12 +80,12 @@ def check_award(results: Dict[str, Dict[str, int]]) -> str:
             awarded_prizes.append(prize_text)
 
     if awarded_prizes:
-        return "\n🔵 PRÉMIOS \n\n" + "\n".join([f"=> {prize}" for prize in awarded_prizes])
+        return "🔵 PRÉMIOS \n" + "\n".join([f"=> {prize}" for prize in awarded_prizes])
     else:
         return "Sem nenhum prémio 😭\n\n"
 
 def format_my_keys(my_keys: Dict[str, Dict[str, List[int]]]) -> str:
-    message = "🔵 As nossas chaves:\n\n"
+    message = "🔵 As nossas chaves:\n"
     for key, values in my_keys.items():
         numbers = " ".join(map(str, values['number']))
         stars = " ".join(map(str, values['stars']))
@@ -95,7 +95,7 @@ def format_my_keys(my_keys: Dict[str, Dict[str, List[int]]]) -> str:
 def formatted_response(awards: str, draw_info: Dict[str, List[int]], personal_keys: Dict[str, Dict[str, List[int]]]) -> str:
     draw_numbers = " ".join(map(str, draw_info['numbers']))
     draw_stars = " ".join(map(str, draw_info['stars']))
-    message = f"🔵 Resultados do sorteio\n{draw_info['date']}\n\n"
+    message = f"🔵 Resultados do sorteio de {draw_info['date']}\n\n"
     message += f"Números: {draw_numbers}\nEstrelas: {draw_stars}\n\n"
     message += format_my_keys(personal_keys)
     message += f"\n{awards}\n"
