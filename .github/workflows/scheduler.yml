@@ -1,0 +1,30 @@
+- name: Run Python script with debug
+  run: |
+    echo "Running automation.py"
+    echo "Twilio Account SID: $TWILIO_ACCOUNT_SID"
+    echo "From WhatsApp Number: $WHATSAPP_FROM_NUMBER"
+    python automation.py
+
+on:
+  schedule:
+    - cron: "5 0-23 * * *
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Make sure you have a requirements.txt file with dependencies
+
+      - name: Run Python script
+        run: |
+          python automation.py  # This will run your script that sends WhatsApp messages
