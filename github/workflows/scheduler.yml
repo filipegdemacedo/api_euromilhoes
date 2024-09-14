@@ -2,7 +2,7 @@ name: Scheduled Euromilhoes Script
 
 on:
   schedule:
-    - cron: "0 10 * * 3,6"
+    - cron: "5 * * * *"
 jobs:
   run_script:
     runs-on: ubuntu-latest
