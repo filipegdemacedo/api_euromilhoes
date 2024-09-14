@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from script import get_euromilhoes_results
+from script import get_draw_results
 
 app = FastAPI()
 
@@ -9,4 +9,8 @@ def read_root():
 
 @app.get("/results")
 def read_results():
-    return(get_euromilhoes_results())
+    draw_results = get_draw_results()
+    return {
+        "stars": draw_results["stars"],
+        "numbers": draw_results["numbers"]
+    }
