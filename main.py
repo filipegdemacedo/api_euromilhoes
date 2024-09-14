@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from script import get_draw_results
+from script import get_euromilhoes_results_message
 
 app = FastAPI()
 
