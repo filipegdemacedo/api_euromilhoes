@@ -3,6 +3,7 @@ name: Scheduled Euromilhoes Script
 on:
   schedule:
     - cron: "5 0-23 * * *"  # Runs every hour at the 5th minute
+  workflow_dispatch:  # Allows you to manually trigger the workflow from GitHub
 
 jobs:
   run_script:
@@ -19,12 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Ensure you have all dependencies in requirements.txt
-
-      - name: Check Environment Variables
-        run: |
-          echo "Twilio Account SID: ${{ secrets.TWILIO_ACCOUNT_SID }}"
-          echo "From WhatsApp Number: ${{ secrets.WHATSAPP_FROM_NUMBER }}"
+          pip install -r requirements.txt
 
       - name: Run Python script
         env:
