@@ -1,13 +1,9 @@
-- name: Run Python script with debug
-  run: |
-    echo "Running automation.py"
-    echo "Twilio Account SID: $TWILIO_ACCOUNT_SID"
-    echo "From WhatsApp Number: $WHATSAPP_FROM_NUMBER"
-    python automation.py
+name: Scheduled Euromilhoes Script
 
 on:
   schedule:
-    - cron: "5 0-23 * * *
+    - cron: "5 0-23 * * *"  # Runs every hour at the 5th minute
+
 jobs:
   run_script:
     runs-on: ubuntu-latest
@@ -23,8 +19,13 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Make sure you have a requirements.txt file with dependencies
+          pip install -r requirements.txt  # Ensure you have all dependencies in requirements.txt
 
       - name: Run Python script
+        env:
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          WHATSAPP_FROM_NUMBER: ${{ secrets.WHATSAPP_FROM_NUMBER }}
+          WHATSAPP_TO_NUMBER: ${{ secrets.WHATSAPP_TO_NUMBER }}
         run: |
-          python automation.py  # This will run your script that sends WhatsApp messages
+          python automation.py
