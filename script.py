@@ -44,7 +44,7 @@ def my_personal_keys() -> Dict[str, Dict[str, List[int]]]:
 
 def check_results(results: Dict[str, List[int]], personal_keys: Dict[str, Dict[str, List[int]]]) -> Dict[str, Dict[str, int]]:
     output = {}
-    for i in range(1, 7):
+    for i in range(1, 8):
         key_name = f'key{i}'
         personal_key = personal_keys[key_name]
         matching_numbers = set(results['numbers']) & set(personal_key['number'])
