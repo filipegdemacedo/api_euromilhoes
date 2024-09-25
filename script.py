@@ -39,7 +39,7 @@ def my_personal_keys() -> Dict[str, Dict[str, List[int]]]:
         'key4': {'number': [13, 21, 23, 30, 43], 'stars': [4, 10]},
         'key5': {'number': [7, 11, 15, 37, 44], 'stars': [7, 11]},
         'key6': {'number': [1, 9, 11, 20, 41], 'stars': [1, 6]},
-        'key6': {'number': [9, 14, 18, 21, 30], 'stars': [7, 11]},
+        'key7': {'number': [9, 14, 18, 21, 30], 'stars': [7, 11]},
     }
 
 def check_results(results: Dict[str, List[int]], personal_keys: Dict[str, Dict[str, List[int]]]) -> Dict[str, Dict[str, int]]:
