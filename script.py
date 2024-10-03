@@ -40,11 +40,12 @@ def my_personal_keys() -> Dict[str, Dict[str, List[int]]]:
         'key5': {'number': [7, 11, 15, 37, 44], 'stars': [7, 11]},
         'key6': {'number': [1, 9, 11, 20, 41], 'stars': [1, 6]},
         'key7': {'number': [9, 14, 18, 21, 30], 'stars': [7, 11]},
+        'key8': {'number': [1, 6, 12, 13, 33], 'stars': [10, 12]},
     }
 
 def check_results(results: Dict[str, List[int]], personal_keys: Dict[str, Dict[str, List[int]]]) -> Dict[str, Dict[str, int]]:
     output = {}
-    for i in range(1, 8):
+    for i in range(1, 9):
         key_name = f'key{i}'
         personal_key = personal_keys[key_name]
         matching_numbers = set(results['numbers']) & set(personal_key['number'])

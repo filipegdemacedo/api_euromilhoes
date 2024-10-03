@@ -2,7 +2,7 @@ name: Scheduled Euromilhoes Script
 
 on:
   schedule:
-    - cron: "30 22 * * 2,5"
+    - cron: "00 21 * * 2,5"
   workflow_dispatch:
 
 jobs:
