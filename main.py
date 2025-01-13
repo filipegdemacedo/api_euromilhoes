@@ -15,3 +15,10 @@ def read_results():
         "stars": draw_results["stars"],
         "numbers": draw_results["numbers"]
     }
+
+@app.get("/formatted_myresults")
+def read_results():
+    result_message = get_euromilhoes_results_message()
+    return {
+        "result_message": result_message
+    }
